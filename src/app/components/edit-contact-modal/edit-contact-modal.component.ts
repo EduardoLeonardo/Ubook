@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbActiveModal  } from '@ng-bootstrap/ng-bootstrap';
 import { Contact } from 'src/app/domain/contact';
 import { ContactService } from 'src/app/services/contact.service';
@@ -10,8 +10,9 @@ import { ContactService } from 'src/app/services/contact.service';
 })
 export class EditContactModalComponent implements OnInit {
 
-  @Input() evento = 'Criar';
-  @Input() set _contact(values : Contact){
+  @Output() saveContact: EventEmitter<Contact> = new EventEmitter<Contact>();
+  @Input() title = 'Criar';
+  @Input() set _contact(values : Contact) {
     this.contact = values ? values : new Contact();
   }
 
@@ -23,11 +24,11 @@ export class EditContactModalComponent implements OnInit {
   ngOnInit() {
   }
 
-  save():void {
-    this.contactService.addContact(this.contact);
+  save(): void {
+      this.contactService.addContact(this.contact);
   }
 
-  close():void {
+  close(): void {
     this.activeModal.dismiss();
   }
 }
