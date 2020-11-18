@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal  } from '@ng-bootstrap/ng-bootstrap';
-import { Person } from 'src/app/domain/person';
+import { Contact } from 'src/app/domain/contact';
 import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
@@ -11,20 +11,20 @@ import { ContactService } from 'src/app/services/contact.service';
 export class EditContactModalComponent implements OnInit {
 
   @Input() evento = 'Criar';
-  @Input() set _person(values : Person){
-    this.person = values ? values : new Person();
+  @Input() set _contact(values : Contact){
+    this.contact = values ? values : new Contact();
   }
 
-  person: Person;
+  contact: Contact;
   constructor(public activeModal: NgbActiveModal, private contactService: ContactService) {
-    this.person = new Person();
+    this.contact = new Contact();
   }
 
   ngOnInit() {
   }
 
   save():void {
-    this.contactService.addContact(this.person);
+    this.contactService.addContact(this.contact);
   }
 
   close():void {

@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactService } from './services/contact.service';
 import { EditContactModalComponent } from './components/edit-contact-modal/edit-contact-modal.component';
+import { ListContactComponent } from './components/list-contact/list-contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EditContactModalComponent
+    EditContactModalComponent,
+    ListContactComponent
   ],
   imports: [
     BrowserModule,

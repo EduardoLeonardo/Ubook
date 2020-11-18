@@ -1,20 +1,20 @@
-import { Person } from "../domain/person";
+import { Contact } from "../domain/contact";
 
 export class ContactService {
   constructor() {}
 
-  getContactList(): Person[] {
+  getContactList(): Contact[] {
     const personList = JSON.parse(sessionStorage.getItem("scheduleList"));
     return personList ? personList : [];
   }
 
-  addContact(person: Person): void {
+  addContact(person: Contact): void {
     const personList = this.getContactList();
     personList.push(person);
     sessionStorage.setItem("scheduleList", JSON.stringify(personList));
   }
 
-  removeFavorite(person: Person): void {
+  removeFavorite(person: Contact): void {
     //   const favoriteList = this.getContactList;
     //   const newFavoriteList = favoriteList.filter( movieFavorite => movieFavorite.title !== person.name);
     //   if (favoriteList.length) {
