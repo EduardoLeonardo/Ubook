@@ -15,7 +15,7 @@ export class AppComponent {
   constructor(private modalService: NgbModal) {}
 
   openModal() {
-    const modalRef = this.modalService.open(EditContactModalComponent);
+    const modalRef = this.modalService.open(EditContactModalComponent,{backdrop:'static', keyboard:false });
     modalRef.result.then(() => this.listContact.refresh());
   }
 

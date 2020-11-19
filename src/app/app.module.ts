@@ -8,6 +8,11 @@ import { EditContactModalComponent } from './components/edit-contact-modal/edit-
 import { ListContactComponent } from './components/list-contact/list-contact.component';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 import { NewContactButtonComponent } from './components/new-contact-button/new-contact-button.component';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -21,6 +26,7 @@ import { NewContactButtonComponent } from './components/new-contact-button/new-c
     BrowserModule,
     NgbModule,
     FormsModule,
+    NgxMaskModule.forRoot(maskConfig),
   ],
   providers: [
     ContactService
