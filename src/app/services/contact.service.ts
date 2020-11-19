@@ -16,9 +16,9 @@ export class ContactService {
 
   removeContact(contact: Contact): void {
       const contactList = this.getContactList();
-      const newContactList = contactList.filter( itemContact => itemContact.name !== contact.name && itemContact.phone !== contact.phone );
-      if (newContactList.length) {
-        sessionStorage.setItem('scheduleList', JSON.stringify(newContactList));
+      contactList.splice(contactList.indexOf(contact), 1);
+      if (contactList.length) {
+        sessionStorage.setItem('scheduleList', JSON.stringify(contactList));
       } else {
         sessionStorage.removeItem('scheduleList');
       }
