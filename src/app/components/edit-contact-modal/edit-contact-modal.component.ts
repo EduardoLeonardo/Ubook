@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NgbActiveModal  } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { Contact } from 'src/app/domain/contact';
 import { ContactService } from 'src/app/services/contact.service';
 
@@ -8,27 +8,27 @@ import { ContactService } from 'src/app/services/contact.service';
   templateUrl: './edit-contact-modal.component.html',
   styleUrls: ['./edit-contact-modal.component.css']
 })
-export class EditContactModalComponent implements OnInit {
+export class EditContactModalComponent {
 
   @Output() saveContact: EventEmitter<Contact> = new EventEmitter<Contact>();
   @Input() title = 'Criar';
-  @Input() set _contact(values : Contact) {
-    this.contact = values ? values : new Contact();
-  }
-
-  contact: Contact;
-  constructor(public activeModal: NgbActiveModal, private contactService: ContactService) {
-    this.contact = new Contact();
-  }
-
-  ngOnInit() {
+  @Input() contact = new Contact();
+  color =['#fa8d68', '#90d26c', '#68a0fa', '#fab668', '#fab668', '#fa68b5', '#5fe2c4', '#f55a5a'];
+  constructor(public editContactModal: NgbActiveModal, private contactService: ContactService) {
   }
 
   save(): void {
-      this.contactService.addContact(this.contact);
+    this.contact.imageColor = this.getColor();
+    this.contactService.addContact(this.contact);
+    this.editContactModal.close();
   }
 
-  close(): void {
-    this.activeModal.dismiss();
+  saveIsValid(): boolean {
+    const {name, email, phone} = this.contact;
+    return  name !== ''  || email !=='' || phone !== '';
+  }
+
+  getColor(): string{
+    return this.color[Math.floor(Math.random() * this.color.length - 1)];
   }
 }
