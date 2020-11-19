@@ -20,7 +20,7 @@ export class ListContactComponent implements OnInit {
   }
 
   edit(contact: Contact) {
-    const modalConfirmRef = this.modalService.open(EditContactModalComponent);
+    const modalConfirmRef = this.modalService.open(EditContactModalComponent,{backdrop:'static', keyboard:false });
     modalConfirmRef.componentInstance.contact = contact;
     modalConfirmRef.componentInstance.title="Editar";
     modalConfirmRef.result.then( (result) =>  {
@@ -31,7 +31,7 @@ export class ListContactComponent implements OnInit {
   }
 
   exclude(contact: Contact): void {
-    const modalConfirmRef = this.modalService.open(ConfirmModalComponent);
+    const modalConfirmRef = this.modalService.open(ConfirmModalComponent,{backdrop:'static', keyboard:false });
 
     modalConfirmRef.result.then( (result) =>  {
       if(result) {
