@@ -1,8 +1,44 @@
-/* td:active {
-    background: #fff3f2;
-} */
+table {
+    border-radius: 4px;
+    border: solid 1px #e1e1e1;
+    background-color: #fff;
+}
+
+th {
+    border: 0px;
+    font-weight: 400;
+    color: #9198af;
+}
 
 .action {
     margin-right: 15.5px;
     cursor: pointer;
+}
+
+.circle {
+    border-radius: 50%;
+    background-color: red;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    color: #fff;
+    margin-right: 5px;
+}
+
+svg {
+    color: #9198af;
+}
+
+.column-contact {
+    padding-left: 3%;
+}
+
+tr:hover{
+    background-color: #fff3f2;
+    cursor: pointer;
+}
+
+.contact-name {
+    margin-bottom: 0px;
+    padding-left: 15px;
 }
