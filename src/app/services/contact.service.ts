@@ -14,13 +14,13 @@ export class ContactService {
     sessionStorage.setItem("scheduleList", JSON.stringify(personList));
   }
 
-  removeFavorite(person: Contact): void {
-    //   const favoriteList = this.getContactList;
-    //   const newFavoriteList = favoriteList.filter( movieFavorite => movieFavorite.title !== person.name);
-    //   if (favoriteList.length) {
-    //     sessionStorage.setItem('scheduleList', JSON.stringify(newFavoriteList));
-    //   } else {
-    //     sessionStorage.removeItem('scheduleList');
-    //   }
+  removeContact(contact: Contact): void {
+      const contactList = this.getContactList();
+      const newContactList = contactList.filter( itemContact => itemContact.name !== contact.name && itemContact.phone !== contact.phone );
+      if (newContactList.length) {
+        sessionStorage.setItem('scheduleList', JSON.stringify(newContactList));
+      } else {
+        sessionStorage.removeItem('scheduleList');
+      }
   }
 }

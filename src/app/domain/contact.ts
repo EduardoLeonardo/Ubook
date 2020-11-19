@@ -1,11 +1,13 @@
 export class Contact {
   name: string;
   email: string;
-  telefone: string;
+  phone: string;
+  imageColor: string;
 
   constructor() {
     this.name = "";
     this.email = "";
-    this.telefone = "";
+    this.phone = "";
+    this.imageColor = "";
   }
 }
