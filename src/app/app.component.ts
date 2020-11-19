@@ -1,6 +1,7 @@
-import { Component, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ViewChild } from "@angular/core";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { EditContactModalComponent } from './components/edit-contact-modal/edit-contact-modal.component';
+import { ListContactComponent } from './components/list-contact/list-contact.component';
 
 @Component({
   selector: "app-root",
@@ -8,10 +9,17 @@ import { EditContactModalComponent } from './components/edit-contact-modal/edit-
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
+  @ViewChild('listContact', {static: false}) listContact: ListContactComponent; 
 
+  searchParam: string;
   constructor(private modalService: NgbModal) {}
 
   openModal() {
-   this.modalService.open(EditContactModalComponent);
+    const modalRef = this.modalService.open(EditContactModalComponent);
+    modalRef.result.then(() => this.listContact.refresh());
+  }
+
+  search() {
+    this.listContact.search(this.searchParam);
   }
 }

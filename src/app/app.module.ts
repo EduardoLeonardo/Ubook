@@ -6,12 +6,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContactService } from './services/contact.service';
 import { EditContactModalComponent } from './components/edit-contact-modal/edit-contact-modal.component';
 import { ListContactComponent } from './components/list-contact/list-contact.component';
+import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
+import { NewContactButtonComponent } from './components/new-contact-button/new-contact-button.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EditContactModalComponent,
-    ListContactComponent
+    ListContactComponent,
+    ConfirmModalComponent,
+    NewContactButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -21,8 +25,8 @@ import { ListContactComponent } from './components/list-contact/list-contact.com
   providers: [
     ContactService
   ],
-  exports:[EditContactModalComponent],
-  entryComponents: [EditContactModalComponent],
+  exports:[],
+  entryComponents: [EditContactModalComponent,ConfirmModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
