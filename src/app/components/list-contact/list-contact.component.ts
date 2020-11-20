@@ -15,7 +15,8 @@ export class ListContactComponent implements OnInit {
 
   @Input() contactList: Contact[];
   @Input() contactListBehaviorSubject: BehaviorSubject<number>;
-  
+  showButton = false;
+  message: string;
   constructor(private contactService: ContactService,private modalService: NgbModal) { }
 
   ngOnInit(): void {
@@ -46,13 +47,21 @@ export class ListContactComponent implements OnInit {
 
   refresh(): void {
     this.contactList = this.contactService.getContactList();
+    if(!this.contactList.length) {
+      this.showButton = true;
+      this.searchResultMessage('Nenhum contato foi criado ainda.');
+    }
   }
 
   search(param: string):void {
     this.refresh();
-    if(param){
+    if(param) {
       this.contactList = this.contactList.filter( contact => contact.name.includes(param));
-    }
+      this.showButton = this.contactList && this.contactList.length > 0;
+      if(!this.showButton) {
+        this.searchResultMessage('Nenhum resultado para essa busca');
+      }
+    } 
   }
 
   lastContact(contact: Contact): string {
@@ -60,5 +69,9 @@ export class ListContactComponent implements OnInit {
     if (this.contactService.getLastContact(contact)) {
       return '#fff3f2';
     }
+  }
+
+  searchResultMessage(message: string) {
+    return this.message = message;
   }
 }

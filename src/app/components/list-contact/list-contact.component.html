@@ -34,7 +34,7 @@
   <ng-template #contactNoResult>
     <div class="d-flex flex-column align-items-center">
         <img src="../assets/shedule.svg" alt="Agenda" width="200" height="237">
-        <p>Nenhum contato foi criado ainda.</p>
-        <app-new-contact-button (saveContact)="refresh()"></app-new-contact-button>
+        <p>{{message}}</p>
+        <app-new-contact-button *ngIf="showButton"(saveContact)="refresh()"></app-new-contact-button>
     </div>
   </ng-template>
