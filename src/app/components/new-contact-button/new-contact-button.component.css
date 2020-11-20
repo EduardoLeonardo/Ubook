@@ -6,4 +6,6 @@ button {
     border: solid 1px rgba(255, 255, 255, 0.16);
     background-color: #dbff90;
     color: var(--salmon);
+    font-size: 14px;
+    font-weight: bold;
 }

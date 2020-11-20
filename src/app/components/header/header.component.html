@@ -3,7 +3,7 @@
         <div class="col">
             <img src="../assets/logo.svg" width="148" height="32" alt="logo ubook" />
         </div>
-        <div class="col-2" *ngIf="hasContact">
+        <div class="col" *ngIf="hasContact">
             <app-new-contact-button (saveContact)="refreshEvent()"></app-new-contact-button>
         </div>
 
