@@ -1,0 +1,10 @@
+input {
+    background-color: var(--grey);
+    font-weight: 500;
+    border-right: 0px;
+}
+
+.input-group-text {
+    background-color: var(--grey);
+    border-left: 0px;
+}
