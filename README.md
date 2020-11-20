@@ -1,7 +1,12 @@
 # Ubook
 
-O Ubook é um app de agenda de contatos, onde é possível Criar, Editar e Excluir contatos.
-O projeto foi feito com [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
+O Ubook é um app de agenda de contatos, o app foi feito com [Angular CLI](https://github.com/angular/angular-cli) version 9.1.12.
+
+## Funcionalidades
+  - Criar 
+  - Editar 
+  - Excluir 
+  - Pesquisar
 
 ## Development Run
 
