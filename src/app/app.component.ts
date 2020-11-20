@@ -9,7 +9,7 @@ import { ListContactComponent } from './components/list-contact/list-contact.com
   styleUrls: ["./app.component.css"],
 })
 export class AppComponent {
-  @ViewChild('listContact', {static: false}) listContact: ListContactComponent; 
+  @ViewChild('listContact') listContact: ListContactComponent; 
 
   searchParam: string;
   constructor(private modalService: NgbModal) {}

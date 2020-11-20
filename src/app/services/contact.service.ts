@@ -1,5 +1,7 @@
 import { Contact } from "../domain/contact";
+import { Injectable } from "@angular/core";
 
+@Injectable()
 export class ContactService {
   constructor() {}
 

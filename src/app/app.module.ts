@@ -32,7 +32,6 @@ const maskConfig: Partial<IConfig> = {
     ContactService
   ],
   exports:[],
-  entryComponents: [EditContactModalComponent,ConfirmModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
