@@ -54,4 +54,11 @@ export class ListContactComponent implements OnInit {
       this.contactList = this.contactList.filter( contact => contact.name.includes(param));
     }
   }
+
+  lastContact(contact: Contact): string {
+   
+    if (this.contactService.getLastContact(contact)) {
+      return '#fff3f2';
+    }
+  }
 }

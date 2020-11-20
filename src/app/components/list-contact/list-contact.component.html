@@ -8,22 +8,22 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of contactList">
+      <tr *ngFor="let contact of contactList" [ngStyle]="{'background-color': lastContact(contact)}">
         <td scope="row">
           <div class="d-flex">
-            <div class="circle" [ngStyle]="{'background-color': item.imageColor}">
-              <p>{{item.name.substring(0,1).toUpperCase()}}</p>
+            <div class="circle" [ngStyle]="{'background-color': contact.imageColor}">
+              <p>{{contact.name.substring(0,1).toUpperCase()}}</p>
             </div>
-            <p class="contact-name">{{item.name}}</p>
+            <p class="contact-name">{{contact.name}}</p>
           </div>
         </td>
-        <td scope="row" >{{item.email}}</td>
-        <td scope="row" >{{item.phone | mask:"(00) 00000-0000"}}</td>
+        <td scope="row" >{{contact.email}}</td>
+        <td scope="row" >{{contact.phone | mask:"(00) 00000-0000"}}</td>
         <td scope="row" class="text-right">
-            <svg (click)="edit(item)" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil action" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <svg (click)="edit(contact)" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil action" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
             </svg>
-            <svg (click)="exclude(item)"width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill action" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <svg (click)="exclude(contact)"width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill action" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
             </svg>
         </td>

@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ContactService {
   constructor() {}
   private contactCountBehaviorSubject = new BehaviorSubject<number>(0);
+  private lastContact: Contact;
 
   setContactCount(contactCount = 0){
     this.contactCountBehaviorSubject.next(contactCount);
@@ -26,6 +27,8 @@ export class ContactService {
     const contactList = this.getContactList();
     contactList.push(contact);
     sessionStorage.setItem("scheduleList", JSON.stringify(contactList));
+    this.lastContact = contact;
+    this.clearLastContact();
   }
 
   updateContact(newContact: Contact, oldContact: Contact):void {
@@ -33,6 +36,8 @@ export class ContactService {
     const indice = contactList.findIndex(({name,email,phone}) => name === oldContact.name && email === oldContact.email && phone === oldContact.phone)
     contactList[indice] = newContact;
     sessionStorage.setItem("scheduleList", JSON.stringify(contactList));
+    this.lastContact = newContact;
+    this.clearLastContact();
   }
 
   removeContact(contact: Contact): void {
@@ -43,5 +48,17 @@ export class ContactService {
       } else {
         sessionStorage.removeItem('scheduleList');
       }
+  }
+
+  getLastContact({name, email, phone,imageColor}): boolean {
+    if (this.lastContact) {
+      const lastNamePhoneEquals = this.lastContact.name === name && this.lastContact.email === email;
+      const lastPhoneImageEquals = this.lastContact.phone === phone && this.lastContact.imageColor === imageColor;
+      return lastNamePhoneEquals && lastPhoneImageEquals;
+    }
+  }
+
+  clearLastContact(){
+    setTimeout(() => this.lastContact = new Contact(),10000);
   }
 }
