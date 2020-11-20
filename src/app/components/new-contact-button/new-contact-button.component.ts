@@ -7,15 +7,10 @@ import { EditContactModalComponent } from '../edit-contact-modal/edit-contact-mo
   templateUrl: './new-contact-button.component.html',
   styleUrls: ['./new-contact-button.component.css']
 })
-export class NewContactButtonComponent implements OnInit {
-
+export class NewContactButtonComponent{
 
   @Output() saveContact: EventEmitter<void> = new EventEmitter<any>();
   constructor(private modalService: NgbModal) { }
-
-  ngOnInit() {
-  }
-
 
   openModal() {
     const modalRef = this.modalService.open(EditContactModalComponent,{backdrop:'static', keyboard:false,centered:true });

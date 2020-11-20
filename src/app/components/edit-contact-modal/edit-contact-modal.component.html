@@ -5,15 +5,15 @@
 <div class="modal-body">
     <div class="form-group">
         <label for="nameInput">Nome</label>
-        <input type="text" class="form-control" id="nameInput" [(ngModel)]="contact.name" maxlength="50" >
+        <input type="text" class="form-control" id="nameInput" [(ngModel)]="newContact.name" maxlength="50" >
     </div>
     <div class="form-group">
         <label for="emailInput">E-mail</label>
-        <input type="email" class="form-control" id="emailInput" [(ngModel)]="contact.email" maxlength="50">
+        <input type="email" class="form-control" id="emailInput" [(ngModel)]="newContact.email" maxlength="50">
       </div>
       <div class="form-group w-50">
         <label for="phoneInput">Telefone</label>
-        <input type="text" class="form-control" id="phoneInput" [mask]="'(00) 00000-0000'" maxlength="15" [(ngModel)]="contact.phone" >
+        <input type="text" class="form-control" id="phoneInput" [mask]="'(00) 00000-0000'" maxlength="15" [(ngModel)]="newContact.phone" >
       </div>
 </div>
 <div class="modal-footer">
