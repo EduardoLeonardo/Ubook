@@ -18,7 +18,7 @@ export class NewContactButtonComponent implements OnInit {
 
 
   openModal() {
-    const modalRef = this.modalService.open(EditContactModalComponent,{backdrop:'static', keyboard:false });
+    const modalRef = this.modalService.open(EditContactModalComponent,{backdrop:'static', keyboard:false,centered:true });
     modalRef.result.then(() => this.saveContact.emit());
   }
 }
