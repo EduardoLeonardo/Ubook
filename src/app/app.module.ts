@@ -9,6 +9,7 @@ import { ListContactComponent } from './components/list-contact/list-contact.com
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 import { NewContactButtonComponent } from './components/new-contact-button/new-contact-button.component';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
+import { HeaderComponent } from './components/header/header.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -20,7 +21,8 @@ const maskConfig: Partial<IConfig> = {
     EditContactModalComponent,
     ListContactComponent,
     ConfirmModalComponent,
-    NewContactButtonComponent
+    NewContactButtonComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
